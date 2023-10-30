@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://di8uhfvdvr3qg"]
+
+[ext_resource type="Script" path="res://ui/cell/Cell.cs" id="1_rysiy"]
+[ext_resource type="PackedScene" uid="uid://br1wrnsfjbbhg" path="res://ui/code_editor/code_editor.tscn" id="2_w064c"]
+[ext_resource type="Script" path="res://ui/cell/OutputScrollControl.gd" id="3_te2ky"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_left = 10.0
+offset_right = 357.0
+offset_bottom = 246.0
+script = ExtResource("1_rysiy")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ModeEdit" type="TextEdit" parent="HBox"]
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExecuteButton" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Execute"
+
+[node name="ExcludeButton" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Exclude"
+
+[node name="NotebookCodeEditor" parent="." instance=ExtResource("2_w064c")]
+layout_mode = 2
+scroll_fit_content_height = true
+
+[node name="OutputScrollControl" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_te2ky")
+
+[node name="ResultsRichTextLabel" type="RichTextLabel" parent="OutputScrollControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_following = true
+selection_enabled = true
+
+[connection signal="pressed" from="HBox/ExecuteButton" to="." method="_on_execute_button_pressed"]
+[connection signal="resized" from="OutputScrollControl/ResultsRichTextLabel" to="OutputScrollControl" method="_on_results_rich_text_label_resized"]

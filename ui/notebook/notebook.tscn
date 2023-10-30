@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://uba328j5rjkh"]
+
+[ext_resource type="Script" path="res://ui/notebook/Notebook.cs" id="1_2rhw1"]
+
+[node name="Notebook" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2rhw1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="CellContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
