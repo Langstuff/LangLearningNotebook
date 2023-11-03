@@ -1,0 +1,6 @@
+[submodule "libs/LuaNotebook"]
+	path = libs/LuaNotebook
+	url = git@github.com:Langstuff/LuaNotebook.git
+[submodule "libs/LangLearningNotebookCore"]
+	path = libs/LangLearningNotebookCore
+	url = git@github.com:Langstuff/LangLearningNotebookCore.git
