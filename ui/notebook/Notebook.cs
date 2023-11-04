@@ -1,6 +1,6 @@
 using Godot;
 
-using LuaNotebookScripting;
+using NotebookLua;
 
 public partial class Notebook : ScrollContainer
 {
@@ -9,7 +9,7 @@ public partial class Notebook : ScrollContainer
 
 	public override void _Ready()
 	{
-		luaNotebook = new LuaNotebook();
+		luaNotebook = new LuaNotebook("test");
 		AddCell();
 	}
 

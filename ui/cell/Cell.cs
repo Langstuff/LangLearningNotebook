@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using LuaNotebookScripting;
+using NotebookLua;
 using System.Collections.Concurrent;
 using System.Threading;
 
@@ -58,7 +58,7 @@ public partial class Cell : VBoxContainer
 				results = "";
 				// Execute the Lua code
 				try {
-					luaNotebook.Execute(code);
+					luaNotebook.Execute("lua", code);
 					resultsQueue.Enqueue(results);
 				} catch (Exception e) {
 					resultsQueue.Enqueue(e.Message);
@@ -89,7 +89,7 @@ end
 ";
 		if (luaNotebook is null) {
 			GD.Print("initializing separate LuaNotebook");
-			luaNotebook = new LuaNotebook();
+			luaNotebook = new LuaNotebook("test");
 		}
 		// luaNotebook = GetParent<Notebook>().luaNotebook;
 	}
