@@ -1,14 +1,31 @@
 using Godot;
 
 using NotebookLua;
+using NotebookDatabase;
+using Microsoft.EntityFrameworkCore;
 
 public partial class Notebook : ScrollContainer
 {
-	private PackedScene cellScene = GD.Load<PackedScene>("res://ui/cell/cell.tscn");
+	private PackedScene cellScene = GD.Load<PackedScene>("res://src/ui/cell/cell.tscn");
 	public LuaNotebook luaNotebook;
+
+	// As autoload C# scripts don't work, put this here for now
+	private void InitializeDatabase() {
+		GD.Print("Initialize Database");
+		using (var context = new NotebookContext())
+		{
+			context.Database.Migrate();
+		}
+
+		using (var context = new FlashcardContext())
+		{
+			context.Database.Migrate();
+		}
+	}
 
 	public override void _Ready()
 	{
+		InitializeDatabase();
 		luaNotebook = new LuaNotebook("test");
 		AddCell();
 	}

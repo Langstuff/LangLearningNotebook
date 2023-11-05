@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="LangLearningNotebook"
-run/main_scene="res://ui/notebook/notebook.tscn"
+run/main_scene="res://src/ui/notebook/notebook.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SyntaxHighlighters="*res://ui/code_editor/syntax_highlighters/syntax_highlighters.gd"
+SyntaxHighlighters="*res://src/ui/code_editor/syntax_highlighters/syntax_highlighters.gd"
 
 [dotnet]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://uba328j5rjkh"]
 
-[ext_resource type="Script" path="res://ui/notebook/Notebook.cs" id="1_2rhw1"]
+[ext_resource type="Script" path="res://src/ui/notebook/Notebook.cs" id="1_2rhw1"]
 
 [node name="Notebook" type="ScrollContainer"]
 anchors_preset = 15

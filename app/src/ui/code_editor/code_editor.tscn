@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://br1wrnsfjbbhg"]
 
-[ext_resource type="Script" path="res://ui/code_editor/NotebookCodeEditor.cs" id="1_d5wfk"]
+[ext_resource type="Script" path="res://src/ui/code_editor/NotebookCodeEditor.cs" id="1_d5wfk"]
 
 [node name="NotebookCodeEditor" type="CodeEdit"]
 anchors_preset = 15
