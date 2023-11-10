@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgt7vkcgk0aw2"]
+
+[ext_resource type="Script" path="res://src/ui/FilenameEdit/FilenameEdit.gd" id="1_6sdha"]
+
+[node name="Container" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6sdha")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Control" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Input" type="LineEdit" parent="HBoxContainer/Control"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Label" type="Label" parent="HBoxContainer/Control"]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 1
+vertical_alignment = 1
+
+[node name="ModificationLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+
+[connection signal="focus_exited" from="HBoxContainer/Control/Input" to="." method="_on_input_focus_exited"]
+[connection signal="gui_input" from="HBoxContainer/Control/Label" to="." method="_on_label_gui_input"]
