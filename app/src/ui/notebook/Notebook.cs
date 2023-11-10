@@ -21,6 +21,11 @@ public partial class Notebook : ScrollContainer
 		{
 			context.Database.Migrate();
 		}
+
+		using (var context = new ArticleContext())
+		{
+			context.Database.Migrate();
+		}
 	}
 
 	public override void _Ready()
